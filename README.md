@@ -6,7 +6,7 @@
 1. Bootstrap 4
 2. React (Ongoing)
 
-### Bootstrap Modules 
+### Bootstrap4 Module 
 
 > ## Steps to Install:
 
