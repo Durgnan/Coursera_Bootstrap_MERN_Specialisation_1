@@ -30,7 +30,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
+                    <a id="loginbtn">
                         <span class="fa fa-sign-in"></span> Login
                     </a>
                 </span>
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                         <div class=" form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal" id="loginCancel">Cancel</button>
                             <button type="submit" class=" btn btn-primary btn-sm ml-1">Sign in</button>
 
                         </div>
@@ -153,7 +153,7 @@
                     <div class=" col-12 col-sm align-self-center">
                         <img src="./img/logo.png" class="img-fluid order-sm-first">
                         <div class="btn btn-sm btn-warning col-sm-5 ml-sm-5 order-sm-last">
-                            <a class=" nav-link " href="#reserve" style="color:black;" data-toggle="modal" data-target="#reserveModal">Reserve Table</a>
+                            <a class=" nav-link " style="color:black;"  id="reservebtn">Reserve Table</a>
                         </div>
                            
                     </div>
@@ -336,6 +336,13 @@
                    $("#carouselButton").children("span").removeClass('fa-play');
                    $("#carouselButton").children("span").addClass('fa-pause');
                }
+           });
+           
+           $('#reservebtn').click(function(){
+               $("#reserveModal").modal('toggle');
+           });
+           $('#loginbtn').click(function () {
+                $("#loginModal").modal('toggle');
            });
             
         });
