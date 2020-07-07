@@ -36,9 +36,9 @@ class Header extends Component {
         <Navbar dark expand="md">
           <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto" href="/home">
+            <NavbarBrand className="mr-auto " href="/">
               <img
-                src="assets/images/logo.png"
+                src="./assets/images/logo.png"
                 height="30"
                 width="41"
                 alt="Ristorante Con Fusion"
@@ -105,7 +105,7 @@ class Header extends Component {
                   type="text"
                   id="username"
                   name="username"
-                  innerRef={(input) => this.username = input}
+                  innerRef={(input) => (this.username = input)}
                 />
               </FormGroup>
               <FormGroup>
@@ -114,7 +114,7 @@ class Header extends Component {
                   type="password"
                   id="password"
                   name="password"
-                  innerRef={(input) => this.password = input}
+                  innerRef={(input) => (this.password = input)}
                 />
               </FormGroup>
               <FormGroup check>
@@ -122,7 +122,7 @@ class Header extends Component {
                   <Input
                     type="checkbox"
                     name="remember"
-                    innerRef={(input) => this.remember = input}
+                    innerRef={(input) => (this.remember = input)}
                   />
                   Remember me
                 </Label>
