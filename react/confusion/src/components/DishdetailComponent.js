@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from "react-redux-form";
 import {Loading} from './LoadingComponent';
 import { baseUrl } from "../shared/baseUrl";
-
+import {FadeTransform, Fade, Stagger} from 'react-animation-components';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -127,6 +127,11 @@ class CommentForm extends Component{
               <div>
                 <div className="row">
                   <div className="col-12 col-md-5 m-1">
+                    <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
                     <Card>
                       <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
                       <CardBody>
@@ -134,6 +139,7 @@ class CommentForm extends Component{
                         <CardText>{dish.description}</CardText>
                       </CardBody>
                     </Card>
+                  </FadeTransform>
                   </div>
                   <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
@@ -154,19 +160,28 @@ class CommentForm extends Component{
         if (comments != null) {
             const com = comments.map((comment) => {
                 return (
+                  <Fade in>
                     <div key={comment.id}>
-                        <CardText>
-                            <li className="mt-3">{comment.comment}</li>
-                            <li className="mt-3">-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date )))}</li>
-                        </CardText>
+                      <CardText>
+                        <li className="mt-3">{comment.comment}</li>
+                        <li className="mt-3">
+                          -- {comment.author} ,{" "}
+                          {new Intl.DateTimeFormat("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "2-digit",
+                          }).format(new Date(Date.parse(comment.date)))}
+                        </li>
+                      </CardText>
                     </div>
-                )
+                  </Fade>
+                );
             })
             return (
-                <ul className="list-unstyled">
-                    {com}
-                </ul>
-            )
+              <ul className="list-unstyled">
+                <Stagger in>{com}</Stagger>
+              </ul>
+            );
 
         } else {
             return (<div></div>)
