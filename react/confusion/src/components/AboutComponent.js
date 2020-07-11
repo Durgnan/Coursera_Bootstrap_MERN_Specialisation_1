@@ -3,6 +3,7 @@ import {Breadcrumb,BreadcrumbItem,Card,CardBody,CardHeader,Media,} from "reactst
 import { Link } from "react-router-dom";
 
 
+
 function RenderLeader({leader}){
     return (
       <div className="col-12 mt-5">
